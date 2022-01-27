@@ -1,3 +1,5 @@
 # hurdle
 
-**This repository should not be made public. It contains solutions to the Hurdle coursework.**
+This repository contains the skeleton code for CS141 Functional Programming coursework 1.
+
+Please read the specification IN FULL before attempting to write your solution.
