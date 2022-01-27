@@ -86,7 +86,7 @@ play answer history = do
             colorHistory = map (maximumBy (comparing snd))
                 . groupBy ((==) `on` fst) . sort
                 . concatMap (uncurry zip)
-            ch = colorHistory $ map (\w -> (w,getMatches (exactMatches w answer) w)) history
+            ch = colorHistory $ map (\w -> (w,matchingAlgo w answer)) history
             lcol = \case
                 Nothing   -> setSGRCode [Reset]
                 Just None -> setSGRCode [SetColor Background Vivid Black,       
