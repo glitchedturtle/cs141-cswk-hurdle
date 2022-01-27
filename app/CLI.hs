@@ -103,7 +103,7 @@ play answer history = do
         let g = normalise g'
         if isValid g
             then do
-                let m = getMatches (exactMatches g answer) answer
+                let m = matchingAlgo g answer
                 printGuess m g
                 outputStrLn ""
                 if m == replicate 5 Exact

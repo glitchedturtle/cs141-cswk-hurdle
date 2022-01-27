@@ -191,13 +191,13 @@ testEliminate = testGroup "Q8: eliminate"
       in
         eliminate "BRACE" m ws @?= ["PRICK"]
   , testProperty "Works on random examples"
-    $ property $ forAll (liftA3 (,,)
+    $ property $ forAllShrink (liftA3 (,,)
         (replicateM 5 $ elements ['A' .. 'Z'])
         (replicateM 5 $ elements [None, Partial, Exact])
-        (fmap normalise <$> sublistOf guessList)
-      ) $ \(a,m,gs) -> let e = eliminate a m gs in 
-          all ((==m). matchingAlgo a) e
-          && all ((/=m).matchingAlgo a) (guessList \\ e)
+        (sublistOf guessList)
+      ) genericShrink $ \(a,m,gs) -> let a' = normalise a; e = eliminate a' m gs in 
+          all    ((==m). matchingAlgo a') e
+          && all ((/=m). matchingAlgo a') (gs \\ e)
   ]
 
 testEliminateAll :: TestTree
