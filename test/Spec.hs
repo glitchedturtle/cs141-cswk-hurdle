@@ -195,7 +195,9 @@ testEliminate = testGroup "Q8: eliminate"
         (replicateM 5 $ elements ['A' .. 'Z'])
         (replicateM 5 $ elements [None, Partial, Exact])
         (fmap normalise <$> sublistOf guessList)
-      ) $ \(a,m,gs) -> all ((==m). matchingAlgo a) $ eliminate a m gs
+      ) $ \(a,m,gs) -> let e = eliminate a m gs in 
+          all ((==m). matchingAlgo a) e
+          && all ((/=m).matchingAlgo a) (guessList \\ e)
   ]
 
 testEliminateAll :: TestTree
