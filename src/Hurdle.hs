@@ -53,7 +53,8 @@ exactMatches = error "Not implemented"
 
 --------------------------------------------------------------------------------
 -- | 5. We want to keep track of the "unused" characters in the answer. First, 
--- we use up all of the exact matches. This function takes the exact matches and the answer and gives back all the characters not already exactly matched.
+-- we use up all of the exact matches. This function takes the exact matches and 
+-- the answer and gives back all the characters not already exactly matched.
 --
 -- [JUSTIFY]
 removeExacts :: [ExactMatch] -> String -> String
@@ -71,7 +72,8 @@ getMatches = error "Not implemented"
 
 
 --------------------------------------------------------------------------------
--- | 7. Write the complete matching algorithm as a composition of the above three functions.
+-- | 7. Write the complete matching algorithm as a composition of the above 
+-- three functions.
 --
 -- [JUSTIFY]
 matchingAlgo :: String -> String -> [Match]
@@ -89,7 +91,8 @@ eliminate = error "Not implemented"
 
 
 --------------------------------------------------------------------------------
--- | 9. Based on the whole history of the game so far, return only those words from `guessList` which might still be the hidden word.
+-- | 9. Based on the whole history of the game so far, return only those words 
+-- from `guessList` which might still be the hidden word.
 --
 -- [JUSTIFY]
 eliminateAll :: [(String, [Match])] -> [String]
@@ -97,7 +100,8 @@ eliminateAll = error "Not implemented"
 
 
 --------------------------------------------------------------------------------
--- | 10. Using the above functions, write a function which produces a next guess based on the history of the game so far.
+-- | 10. Using the above functions, write a function which produces a next guess 
+-- based on the history of the game so far.
 --
 -- [JUSTIFY]
 nextGuess :: [(String, [Match])] -> String
