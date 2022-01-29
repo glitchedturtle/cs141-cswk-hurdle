@@ -29,6 +29,9 @@ import Test.Tasty
 import Test.Tasty.HUnit
 import Test.Tasty.QuickCheck
 
+instance Arbitrary Match where
+  arbitrary = elements [minBound .. maxBound]
+
 main :: IO ()
 main = do
   clearScreen

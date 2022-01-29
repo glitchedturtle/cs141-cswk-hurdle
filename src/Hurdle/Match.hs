@@ -5,7 +5,7 @@ The final outcome of the matching algorithm is one Match
 per place in the word.
 -}
 data Match = None | Partial | Exact
-  deriving (Show, Eq, Ord)
+  deriving (Show, Eq, Ord, Enum, Bounded)
 
 {-
 This is the result of step one of the matching algorithm, which
