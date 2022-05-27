@@ -17,6 +17,7 @@ dependencies:
 - random
 - ansi-terminal
 - haskeline
+- containers
 
 library:
   source-dirs: src
